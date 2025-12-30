@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import PlaceCard from "@/components/PlaceCard";
 import { PLACES } from "@/lib/places";
 import { WeatherCondition } from "@/components/WeatherCondition";
@@ -22,18 +22,16 @@ export function DetailPlace() {
 
   const [page, setPage] = useState(0);
   const scrollRef = useRef<HTMLDivElement | null>(null);
-
-  const totalPages = Math.ceil(PLACES.length / ITEMS_PER_PAGE);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const currentPlaces = PLACES.slice(
     page * ITEMS_PER_PAGE,
     page * ITEMS_PER_PAGE + ITEMS_PER_PAGE
-  );
+  ).filter((place) => place.regency === activePlace?.name.id);
 
   /* ================= SCROLL FUNCTION ================= */
   const scrollByAmount = (direction: "left" | "right") => {
     if (!scrollRef.current) return;
-
     const container = scrollRef.current;
     const cardWidth = container.firstElementChild?.clientWidth || 320;
     const gap = 24; // gap-6
@@ -45,49 +43,32 @@ export function DetailPlace() {
     });
   };
 
+  const updateScrollProgress = () => {
+    if (!scrollRef.current) return;
+    const { scrollLeft, scrollWidth, clientWidth } = scrollRef.current;
+    setScrollProgress(scrollLeft / (scrollWidth - clientWidth));
+  };
+
+  useEffect(() => {
+    updateScrollProgress();
+    window.addEventListener("resize", updateScrollProgress);
+    return () => window.removeEventListener("resize", updateScrollProgress);
+  }, [currentPlaces]);
+
   return (
     <section className="overflow-hidden">
       <div className="max-w-7xl mx-auto px-6">
         <div className="rounded-[2.5rem] p-6 md:p-10">
           {/* ================= HEADER ================= */}
-          <div
-            className="
-    flex flex-col
-    lg:flex-row
-    lg:items-center
-    lg:justify-between
-    gap-8
-    mb-12
-  ">
-            {/* ================= LEFT ================= */}
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 mb-12">
             <div className="space-y-4">
               <WeatherCondition />
-
-              <h4
-                className="
-        font-bold text-slate-900
-        text-2xl
-        sm:text-3xl
-        md:text-4xl
-      "
-              >
+              <h4 className="font-bold text-slate-900 text-2xl sm:text-3xl md:text-4xl">
                 {lang === "id" ? activePlace?.name.id : activePlace?.name.en}
               </h4>
             </div>
 
-            {/* ================= RIGHT (STATS) ================= */}
-            <div
-              className="
-      grid
-      grid-cols-2
-      sm:grid-cols-3
-      gap-6
-      text-left
-      sm:text-center
-      lg:text-right
-    "
-            >
-              {/* DESTINATIONS */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-6 text-left sm:text-center lg:text-right">
               <div className="space-y-1">
                 <h3 className="text-2xl sm:text-3xl font-bold text-amber-500">
                   {activePlace?.total_destinations}
@@ -96,8 +77,6 @@ export function DetailPlace() {
                   {lang === "id" ? "Destinasi Wisata" : "Tourist Destinations"}
                 </p>
               </div>
-
-              {/* CULINARY */}
               <div className="space-y-1">
                 <h3 className="text-2xl sm:text-3xl font-bold text-sky-500">
                   {activePlace?.total_culinary}
@@ -106,16 +85,12 @@ export function DetailPlace() {
                   {lang === "id" ? "Kuliner Lokal" : "Local Culinary"}
                 </p>
               </div>
-
-              {/* HOTELS */}
               <div className="space-y-1">
                 <h3 className="text-2xl sm:text-3xl font-bold text-rose-500">
                   {activePlace?.total_hotels}
                 </h3>
                 <p className="text-xs sm:text-sm text-slate-600">
-                  {lang === "id"
-                    ? "Hotel & Penginapan"
-                    : "Hotels & Accommodations"}
+                  {lang === "id" ? "Hotel & Penginapan" : "Hotels & Accommodations"}
                 </p>
               </div>
             </div>
@@ -137,64 +112,29 @@ export function DetailPlace() {
 
             {/* ================= HORIZONTAL SCROLL LIST ================= */}
             <div className="relative">
-              {/* LEFT ARROW */}
-              <button
-                onClick={() => scrollByAmount("left")}
-                className="
-                  hidden md:flex
-                  absolute left-0 top-1/2 -translate-y-1/2 z-10
-                  h-12 w-12 items-center justify-center
-                  rounded-full bg-white shadow-md
-                  hover:bg-slate-100 transition
-                "
-              >
-                ◀
-              </button>
-
               {/* SCROLL CONTAINER */}
               <div
                 ref={scrollRef}
-                className="
-                  flex gap-6
-                  overflow-x-auto
-                  pb-4 px-1
-                  snap-x snap-mandatory
-                  scrollbar-hide
-                "
+                onScroll={updateScrollProgress}
+                className="flex gap-6 overflow-x-auto sm:pb-4 sm:px-1 snap-x snap-mandatory scrollbar-hide"
               >
-                {currentPlaces
-                  .filter((place) => place.regency === activePlace?.name.id)
-                  .map((place) => (
-                    <div
-                      key={place.id}
-                      className="
-                        snap-start
-                        min-w-[280px]
-                        sm:min-w-[320px]
-                        md:min-w-[360px]
-                        lg:min-w-[380px]
-                        transform transition duration-300
-                        hover:-translate-y-2
-                      "
-                    >
-                      <PlaceCard place={place} />
-                    </div>
-                  ))}
+                {currentPlaces.map((place) => (
+                  <div
+                    key={place.id}
+                    className="snap-start min-w-[280px] sm:min-w-[320px] md:min-w-[360px] lg:min-w-[380px] transform transition duration-300 hover:-translate-y-2"
+                  >
+                    <PlaceCard place={place} />
+                  </div>
+                ))}
               </div>
 
-              {/* RIGHT ARROW */}
-              <button
-                onClick={() => scrollByAmount("right")}
-                className="
-                  hidden md:flex
-                  absolute right-0 top-1/2 -translate-y-1/2 z-10
-                  h-12 w-12 items-center justify-center
-                  rounded-full bg-white shadow-md
-                  hover:bg-slate-100 transition
-                "
-              >
-                ▶
-              </button>
+              {/* SCROLL PROGRESS BAR */}
+              <div className="mt-4 h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+                <div
+                  className="h-2 bg-amber-500 rounded-full transition-all duration-200"
+                  style={{ width: `${scrollProgress * 100}%` }}
+                />
+              </div>
             </div>
           </div>
         </div>
