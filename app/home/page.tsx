@@ -17,7 +17,7 @@ export default function Home() {
       <WhyChooseUs />
       <FeaturedPlaces />
       <FinalCTA />
-      <StatsSection />
+      {/* <StatsSection /> */}
       <WaButton />
     </div>
   );

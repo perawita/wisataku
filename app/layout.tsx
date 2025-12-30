@@ -73,7 +73,7 @@ export default function RootLayout({
               "@type": "Organization",
               name: env.APP_NAME,
               url: env.FRONTEND_URL,
-              logo: `${env.FRONTEND_URL}/logo.png`,
+              logo: `${env.FRONTEND_URL}/assets/img/act.webp`,
               description: "Layanan informasi wisata, pemesanan hotel, dan jasa transportasi lokal di Pulau Lombok.",
               address: {
                 "@type": "PostalAddress",
