@@ -1,0 +1,11 @@
+{
+  "siteTitle": "Wisataku",
+  "homeSubtitle": "A collection of popular and hidden tourist spots in Lombok.",
+  "searchPlaceholder": "Search places, locations, or categories...",
+  "daftarTitle": "Places",
+  "mapTitle": "Map",
+  "aboutParagraph": "This is a demo landing page showcasing tourist spots in Lombok, West Nusa Tenggara. Project structure is organized for easy development.",
+  "contactText": "For real data or API integration, contact the project owner.",
+  "lihat": "View",
+  "footer": "© {year} Lombok Tourism — made with ❤️"
+}

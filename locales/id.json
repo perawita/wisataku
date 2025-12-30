@@ -1,0 +1,11 @@
+{
+  "siteTitle": "Wisataku",
+  "homeSubtitle": "Kumpulan tempat wisata populer dan tersembunyi di Lombok.",
+  "searchPlaceholder": "Cari tempat, lokasi, atau kategori...",
+  "daftarTitle": "Daftar Wisata",
+  "mapTitle": "Peta Wisata",
+  "aboutParagraph": "Ini adalah demo landing page menampilkan daftar tempat wisata di Lombok, Nusa Tenggara Barat. Struktur proyek disusun agar mudah dikembangkan.",
+  "contactText": "Untuk data real atau integrasi API, hubungi pemilik proyek.",
+  "lihat": "Lihat",
+  "footer": "© {year} Wisata Lombok — dibuat dengan ❤️"
+}
