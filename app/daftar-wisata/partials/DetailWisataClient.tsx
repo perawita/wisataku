@@ -56,6 +56,10 @@ export default function DetailWisataClient({ place }: { place: any }) {
                 ? place.description.id
                 : place.description.en}
             </p>
+
+
+            <a href={place.image} target="_blank" rel="noopener noreferrer" className="text-sm text-sky-500 text-center">{lang === "id" ? "Sumber Gambar" : "Image Source"}</a>
+
           </div>
 
           {/* ================= INFO CARD ================= */}

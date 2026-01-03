@@ -1,10 +1,9 @@
 export type LocalizedText = { id: string; en: string };
-
 export type Place = {
   id: number;
   name: LocalizedText;
-  location: string;      // kecamatan / area
-  regency?: string;      // Kabupaten / Kota
+  location: string; // kecamatan / area
+  regency?: string; // Kabupaten / Kota
   kode_wilayah_tingkat_iv?: string;
   category?: "destinasi" | "penginapan";
   description: LocalizedText;
@@ -26,7 +25,7 @@ export const PLACES: Place[] = [
       id: "Pasir putih dan ombak yang ramah untuk berselancar, plus pemandangan bukit sekitar.",
       en: "White sand and surf-friendly waves, with scenic surrounding hills.",
     },
-    image: "https://sp-ao.shortpixel.ai/client/to_webp,q_glossy,ret_img,w_1200/https://blog.darmawisataindonesia.co.id/wp-content/uploads/2021/05/Pantai-Kuta-Mandalika.jpg",
+    image: "https://blog.darmawisataindonesia.co.id/wp-content/uploads/2021/05/Pantai-Kuta-Mandalika.jpg",
     lat: -8.8953,
     lng: 116.2821,
   },
@@ -61,7 +60,7 @@ export const PLACES: Place[] = [
     lng: 116.3255,
   },
   {
-    id: 9,
+    id: 4,
     name: { id: "Pantai Selong Belanak", en: "Selong Belanak Beach" },
     location: "Selong Belanak",
     regency: "Kabupaten Lombok Tengah",
@@ -75,10 +74,71 @@ export const PLACES: Place[] = [
     lat: -8.8661,
     lng: 116.1601,
   },
+  {
+    id: 5,
+    name: { id: "Pantai Semeti", en: "Semeti Beach" },
+    location: "Mekarsari",
+    regency: "Kabupaten Lombok Tengah",
+    kode_wilayah_tingkat_iv: "52.02.05.2014",
+    category: "destinasi",
+    description: {
+      id: "Pantai berbatu eksotis dengan tebing unik seperti Jurassic Park.",
+      en: "Exotic rocky beach with cliff formations like Jurassic Park.",
+    },
+    image: "https://gomandalika.com/wp-content/uploads/2023/10/Pantai-Semeti-1.jpg",
+    lat: -8.9104,
+    lng: 116.2393,
+  },
+  {
+    id: 6,
+    name: { id: "Pantai Are Guling", en: "Are Guling Beach" },
+    location: "Prabu",
+    regency: "Kabupaten Lombok Tengah",
+    kode_wilayah_tingkat_iv: "52.02.05.2013",
+    category: "destinasi",
+    description: {
+      id: "Pantai tenang dengan spot surfing dan desa nelayan.",
+      en: "Calm beach with surfing spots and fishing village.",
+    },
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyrMHuTBrb72melgALe3CSe4Z7BYgDU1kz0od1hYYUbhuDJ1Y_23dpICBXlbIYyecBx-Y799eO-H7mica0PVMRNFc4PRAVLyU6NhADzeYcDTtt5rRGEvRr63focyT4t_MNtprW9dg=s1360-w1360-h1020",
+    lat: -8.9051,
+    lng: 116.2654,
+  },
+  {
+    id: 7,
+    name: { id: "Pantai Telawas", en: "Telawas Beach" },
+    location: "Mekarsari",
+    regency: "Kabupaten Lombok Tengah",
+    kode_wilayah_tingkat_iv: "52.02.05.2014",
+    category: "destinasi",
+    description: {
+      id: "Pantai tersembunyi dengan formasi batuan tajam yang dramatis.",
+      en: "Hidden beach with dramatic sharp rock formations.",
+    },
+    image: "https://sandee.com/_next/image?url=https%3A%2F%2Flh5.googleusercontent.com%2Fp%2FAF1QipOGLBePTMATThRgJtDtagyD7VfULBdP3OHHuDSC%3Ds1600-k-no&w=3840&q=75",
+    lat: -8.9142,
+    lng: 116.2252,
+  },
+  // Tambahan Lombok Tengah
+  {
+    id: 8,
+    name: { id: "Desa Adat Sade", en: "Sade Traditional Village" },
+    location: "Rembitan",
+    regency: "Kabupaten Lombok Tengah",
+    kode_wilayah_tingkat_iv: "52.02.09.2001", // Desa Rembitan, Kec. Pujut
+    category: "destinasi",
+    description: {
+      id: "Desa tradisional Sasak dengan rumah adat dan tenun ikat khas.",
+      en: "Traditional Sasak village with authentic houses and weaving culture.",
+    },
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzteHfIzFPM2-G5sggC9FeGln5EEWr92fuEwRoVKALNmr02j8rOWamSGhi4RP6MHucID9A1E8-Zd2icRBSg6e6xmRHfdlfzt-c0ID-kKFSW0s5bEW8dOaIgD3G8J4Y0hE-q9FSp=s1360-w1360-h1020",
+    lat: -8.8394,
+    lng: 116.2921,
+  },
 
   // ====================== DESTINASI (LOMBOK UTARA) ======================
   {
-    id: 4,
+    id: 9,
     name: { id: "Air Terjun Tiu Kelep", en: "Tiu Kelep Waterfall" },
     location: "Senaru",
     regency: "Kabupaten Lombok Utara",
@@ -93,7 +153,7 @@ export const PLACES: Place[] = [
     lng: 116.4026,
   },
   {
-    id: 6,
+    id: 10,
     name: { id: "Gili Trawangan", en: "Gili Trawangan" },
     location: "Gili Indah",
     regency: "Kabupaten Lombok Utara",
@@ -103,14 +163,105 @@ export const PLACES: Place[] = [
       id: "Pulau kecil dengan snorkeling dan kehidupan malam santai tanpa kendaraan bermotor.",
       en: "Small island with snorkeling and relaxed nightlife without motorized vehicles.",
     },
-    image: "https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjQLZPu6Aul1am6jriYgNGZhXfGhuUCl3PsSoXC2ibF7xQj5n0gBgxPWHJbojfxKWmAaFM7Msbrx1blMmOC0N99w_ZAoeUeDT4zyA9pVZGeSZSgxAWmxkWqrBY0ubJxf2Qrff4bdTVdgLc/s1600/Gili+Trawangan+3.jpg",
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxXUY3-eed32kgtNV3hOdfuYpYixKsdyIQDHyX38YPc4HGVKgp5otJSUi2n46pFjPtReNWClHKsxh8jl7LYt4pj_JChQeBdXbo38_tXlardsa11y69E8Qv2Buw8g80EGDbmhE1tSQ=s1360-w1360-h1020",
     lat: -8.3496,
     lng: 116.0382,
+  },
+  {
+    id: 11,
+    name: { id: "Air Terjun Sindang Gila", en: "Sindang Gila Waterfall" },
+    location: "Senaru",
+    regency: "Kabupaten Lombok Utara",
+    kode_wilayah_tingkat_iv: "52.08.02.2001",
+    category: "destinasi",
+    description: {
+      id: "Air terjun ikonik di jalur wisata Rinjani.",
+      en: "Iconic waterfall on the Rinjani tourist route.",
+    },
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSyAMjPMkRqIxm72lRKbquIRBEVC7MpiRfNan63ygJjK2YH5SSshlo1Oa7Hw8qhCy9AlGwsku0qYYIkt4X947dNp45npOdfyEYVgdgWhnSjNuzph1cFU5CFSSXB5oFk-jC-d8XpgXTnU50j2=s1360-w1360-h1020",
+    lat: -8.3019,
+    lng: 116.4044,
+  },
+  {
+    id: 12,
+    name: { id: "Pantai Sire", en: "Sire Beach" },
+    location: "Sigar Penjalin",
+    regency: "Kabupaten Lombok Utara",
+    kode_wilayah_tingkat_iv: "52.08.03.2005",
+    category: "destinasi",
+    description: {
+      id: "Pantai panjang dengan latar Gunung Rinjani.",
+      en: "Long beach with Mount Rinjani backdrop.",
+    },
+    image: "https://blog.tuguhotels.com/wp-content/uploads/2020/09/DroneHTL-780x585.jpg",
+    lat: -8.3619,
+    lng: 116.1162,
+  },
+  {
+    id: 13,
+    name: { id: "Desa Wisata Senaru", en: "Senaru Tourism Village" },
+    location: "Senaru",
+    regency: "Kabupaten Lombok Utara",
+    kode_wilayah_tingkat_iv: "52.08.02.2001",
+    category: "destinasi",
+    description: {
+      id: "Desa adat pintu masuk pendakian Rinjani.",
+      en: "Traditional village and gateway to Mount Rinjani.",
+    },
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwWSrRUmTM9bqI5NPd5EntFQg_mzs7gTVzVzD9_R5AlwZst7CdfOip-fDQUFQzkfH7uqIgS50UEs_n7lkQZsitseeWHZAR8IFPXsLS6ehsRs7pqInl9CItBBq5izAskcVJ_dJC1YA=s294-w294-h220-k-no",
+    lat: -8.3012,
+    lng: 116.4012,
+  },
+  // Tambahan Lombok Utara (Gili Islands)
+  {
+    id: 14,
+    name: { id: "Gili Air", en: "Gili Air" },
+    location: "Gili Indah",
+    regency: "Kabupaten Lombok Utara",
+    kode_wilayah_tingkat_iv: "52.08.02.2001",
+    category: "destinasi",
+    description: {
+      id: "Pulau tenang dengan pantai indah dan snorkeling kura-kura.",
+      en: "Quiet island with beautiful beaches and turtle snorkeling.",
+    },
+    image: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcS_FFjPfh7RKom2JSJu3STRjPoeCEtGs5MDLORRmWGEAziyCMqjiKbXeJ0s8htlizhYUHrQboZVK7KR4SRL9pYIDX8&s=19",
+    lat: -8.3590,
+    lng: 116.0813,
+  },
+  {
+    id: 15,
+    name: { id: "Gili Meno", en: "Gili Meno" },
+    location: "Gili Indah",
+    regency: "Kabupaten Lombok Utara",
+    kode_wilayah_tingkat_iv: "52.08.02.2003",
+    category: "destinasi",
+    description: {
+      id: "Pulau paling tenang, ideal untuk honeymoon dan relaksasi.",
+      en: "The quietest island, ideal for honeymoon and relaxation.",
+    },
+    image: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcT0qntETnytAl16oFoZ5VNXZ4JpG1UaTw64fZAqGKDFgNq4jDyVKCxBL33gRkcoeWOpv96vGh4d6QzHXCZ9Y0rGCJU&s=19",
+    lat: -8.3528,
+    lng: 116.0590,
+  },
+  {
+    id: 16,
+    name: { id: "Gunung Rinjani", en: "Mount Rinjani" },
+    location: "Sembalun/Bayan/Senaru",
+    regency: "Kabupaten Lombok Utara/Timur",
+    kode_wilayah_tingkat_iv: "52.08.01.2001", // Senaru sebagai base
+    category: "destinasi",
+    description: {
+      id: "Gunung berapi tertinggi kedua di Indonesia dengan danau kawah Segara Anak.",
+      en: "Indonesia's second-highest volcano with Segara Anak crater lake.",
+    },
+    image: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcR2QvGSS8exEsL6FCgjFQOygcQyYn4Rfa0KjvL37fDJdidTAT9oUFfLHkzciKsdIlvhfD6kfCC1wsPCPgk5z4kQJsY&s=19",
+    lat: -8.42,
+    lng: 116.47,
   },
 
   // ====================== DESTINASI (LOMBOK BARAT) ======================
   {
-    id: 10,
+    id: 17,
     name: { id: "Pantai Senggigi", en: "Senggigi Beach" },
     location: "Batu Layar",
     regency: "Kabupaten Lombok Barat",
@@ -124,10 +275,25 @@ export const PLACES: Place[] = [
     lat: -8.4912,
     lng: 116.0469,
   },
+  {
+    id: 18,
+    name: { id: "Pantai Batu Bolong", en: "Batu Bolong Beach" },
+    location: "Batu Layar",
+    regency: "Kabupaten Lombok Barat",
+    kode_wilayah_tingkat_iv: "52.01.07.2001",
+    category: "destinasi",
+    description: {
+      id: "Pantai dengan batu berlubang dan pura di tepi laut.",
+      en: "Beach with a hollow rock and seaside temple.",
+    },
+    image: "https://zjglidcehtsqqqhbdxyp.supabase.co/storage/v1/object/public/atourin/images/destination/badung/pantai-batu-bolong-profile1645552569.jpeg?x-image-process=image/resize,p_100,limit_1/imageslim",
+    lat: -8.4928,
+    lng: 116.0461,
+  },
 
   // ====================== DESTINASI (LOMBOK TIMUR) ======================
   {
-    id: 11,
+    id: 19,
     name: { id: "Pantai Pink", en: "Pink Beach" },
     location: "Jerowaru",
     regency: "Kabupaten Lombok Timur",
@@ -141,10 +307,102 @@ export const PLACES: Place[] = [
     lat: -8.9134,
     lng: 116.5921,
   },
+  {
+    id: 20,
+    name: { id: "Pantai Labuhan Haji", en: "Labuhan Haji Beach" },
+    location: "Labuhan Haji",
+    regency: "Kabupaten Lombok Timur",
+    kode_wilayah_tingkat_iv: "52.03.09.1001",
+    category: "destinasi",
+    description: {
+      id: "Pantai kota dengan jalur jogging dan sunrise cantik.",
+      en: "City beach with jogging track and beautiful sunrise.",
+    },
+    image: "https://cdn.rri.co.id/berita/Mataram/o/1717493743066-pantai-labuhan-haji-1-768x477~2/jc5zmpgy4z9jrgv.jpeg",
+    lat: -8.6738,
+    lng: 116.5323,
+  },
+  {
+    id: 21,
+    name: { id: "Pantai Ekas", en: "Ekas Beach" },
+    location: "Ekas Buana",
+    regency: "Kabupaten Lombok Timur",
+    kode_wilayah_tingkat_iv: "52.03.01.2013",
+    category: "destinasi",
+    description: {
+      id: "Pantai surfing kelas dunia dengan ombak konsisten.",
+      en: "World-class surfing beach with consistent waves.",
+    },
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwm1ObArTgpwbyd0dSnM3v06aLdQC6V1OAyD4jLzMrCwZnIMyev383UrD0rd5alDj2d2HIkDYT3noJoOFjgQleQVIS5fAiKej-r9loY4B9R1cBkkdGhwZQGUnnyKXQmNzsa0KdDGQ=s1360-w1360-h1020",
+    lat: -8.8821,
+    lng: 116.5177,
+  },
+  {
+    id: 22,
+    name: { id: "Bukit Anak Dara", en: "Anak Dara Hill" },
+    location: "Sembalun Lawang",
+    regency: "Kabupaten Lombok Timur",
+    kode_wilayah_tingkat_iv: "52.03.15.2001",
+    category: "destinasi",
+    description: {
+      id: "Bukit pendakian dengan panorama Rinjani.",
+      en: "Hiking hill with panoramic Rinjani views.",
+    },
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSzuP7xW0vNRcgeRA9xOXHAVR1ehni0ITi9fO_VbLRq9haINvvbi2qGDzXN-R1mrw6EvvGYWCqLrAs4FEpIE3IJ0JL-wJcSNX1xr3DjHr_4ofHCKQzfKT3CXZuU_lC2sFKI1iYi7gw=s1360-w1360-h1020",
+    lat: -8.4091,
+    lng: 116.5133,
+  },
+  {
+    id: 23,
+    name: { id: "Tetebatu Rice Terrace", en: "Tetebatu Rice Terrace" },
+    location: "Tetebatu",
+    regency: "Kabupaten Lombok Timur",
+    kode_wilayah_tingkat_iv: "52.03.07.2001",
+    category: "destinasi",
+    description: {
+      id: "Hamparan sawah dan desa wisata sejuk.",
+      en: "Cool village with rice fields and rural tourism.",
+    },
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSwKIEV1laXMm4vrI40uZgM4jhxTsBq3Rd5W0T55URGXfwtWNh36UNkHr0X0XxupG1yC8UM3LbqrcWztyuFRlEd-kGq0Ev6DLQYurizS8p3XxJz49fERE-mc-_r3WSb_2WK2w07h=s1360-w1360-h1020",
+    lat: -8.5194,
+    lng: 116.4172,
+  },
+
+  // ====================== DESTINASI (KOTA MATARAM) ======================
+  {
+    id: 24,
+    name: { id: "Taman Mayura", en: "Mayura Park" },
+    location: "Mayura",
+    regency: "Kota Mataram",
+    kode_wilayah_tingkat_iv: "52.71.04.1001",
+    category: "destinasi",
+    description: {
+      id: "Taman bersejarah peninggalan Kerajaan Karangasem.",
+      en: "Historic park from the Karangasem Kingdom era.",
+    },
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSybqGWnoFgRgMcln2SpU1VUCdevJK_0C2ie0mbR4CjsPgzA230f07fz3OVE9HOR4KshzU_QhsxlXWdqFHxSYl3cQS4bJ4l7Wd3HUhcLk2FZeLylE-r_wpw-Yc4jOihiN1nBR4s=s1360-w1360-h1020",
+    lat: -8.5903,
+    lng: 116.1325,
+  },
+  {
+    id: 25,
+    name: { id: "Pura Meru", en: "Meru Temple" },
+    location: "Mayura",
+    regency: "Kota Mataram",
+    kode_wilayah_tingkat_iv: "52.71.04.1001",
+    category: "destinasi",
+    description: {
+      id: "Pura terbesar di Lombok dengan 11 tingkat meru.",
+      en: "Largest temple in Lombok with 11-tiered meru.",
+    },
+    image: "https://lh3.googleusercontent.com/gps-cs-s/AG0ilSxSRs1ZTdQ_tZBrN7VOe9UA_q0qPdfK8gFex4eUW_S4Kx0sLb0bmm8MQKzC9T5ahr5G20D3tKHXtWRs5iOH7OaqPzvO9a9g5MyJwyLATNNOLqlhDGRwI4soitj5jBXmh2iCaMI=s1360-w1360-h1020",
+    lat: -8.5869,
+    lng: 116.1296,
+  },
 
   // ====================== PENGINAPAN ======================
-  {
-    id: 101,
+{
+    id: 26,
     name: { id: "Hotel Santika Mataram", en: "Hotel Santika Mataram" },
     location: "Mataram",
     regency: "Kota Mataram",
@@ -159,7 +417,7 @@ export const PLACES: Place[] = [
     lng: 116.1084,
   },
   {
-    id: 102,
+    id: 27,
     name: { id: "Hotel Vila Ombak", en: "Hotel Vila Ombak" },
     location: "Gili Trawangan",
     regency: "Kabupaten Lombok Utara",
@@ -169,12 +427,12 @@ export const PLACES: Place[] = [
       id: "Hotel internasional pertama di Gili Trawangan dengan gaya arsitektur Sasak.",
       en: "The first international hotel on Gili Trawangan featuring Sasak architecture.",
     },
-    image: "https://lh3.googleusercontent.com/p/AF1QipM517_I5g6JwT4dknyP52MpD0Iokdz4zpjHOrA1=s1360-w1360-h1020",
+    image: "https://lh3.googleusercontent.com/p/AF1QipP7l00r-3xOAULWhcKQ0i_zIoPY3EjZ0PZ7Nhxe=s1360-w1360-h1020",
     lat: -8.3533,
     lng: 116.0441,
   },
   {
-    id: 104,
+    id: 28,
     name: { id: "Qunci Villas Resort", en: "Qunci Villas Resort" },
     location: "Senggigi",
     regency: "Kabupaten Lombok Barat",
@@ -184,12 +442,12 @@ export const PLACES: Place[] = [
       id: "Resor tepi pantai yang memadukan seni modern dengan ketenangan alam Mangsit.",
       en: "Beachfront resort blending modern art with the natural serenity of Mangsit.",
     },
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSegQAR6kez6oKZsddqylN5gXrE13B4upOiJA&s",
+    image: "https://lh3.googleusercontent.com/p/AF1QipP1y9iiY3_oJCMLvK_DOfsTNEXlEou-tDfSdNpe=s1360-w1360-h1020",
     lat: -8.4728,
     lng: 116.0375,
   },
   {
-    id: 106,
+    id: 29,
     name: { id: "Pullman Lombok Merujani", en: "Pullman Lombok Merujani" },
     location: "Kuta Mandalika",
     regency: "Kabupaten Lombok Tengah",
@@ -199,12 +457,12 @@ export const PLACES: Place[] = [
       id: "Resor bintang 5 terbaru di kawasan Sirkuit Mandalika dengan fasilitas premium.",
       en: "The newest 5-star resort in the Mandalika Circuit area with premium facilities.",
     },
-    image: "https://lh3.googleusercontent.com/p/AF1QipNPscKtqUQvpH0lNcZ63qk0YQLAKuxlHSx6jl8u=w243-h203-n-k-no-nu",
+    image: "https://lh3.googleusercontent.com/p/AF1QipNPscKtqUQvpH0lNcZ63qk0YQLAKuxlHSx6jl8u=s1360-w1360-h1020",
     lat: -8.8955,
     lng: 116.2995,
   },
   {
-    id: 107,
+    id: 30,
     name: { id: "Sempiak Villas", en: "Sempiak Villas" },
     location: "Selong Belanak",
     regency: "Kabupaten Lombok Tengah",
@@ -214,12 +472,12 @@ export const PLACES: Place[] = [
       id: "Vila eksklusif di atas bukit dengan pemandangan langsung ke Teluk Selong Belanak.",
       en: "Exclusive villas on a hill with direct views of Selong Belanak Bay.",
     },
-    image: "https://lh3.googleusercontent.com/p/AF1QipMm_3WA77thp-uBres9cfC9vs3rV8XW8mBygnih=s1360-w1360-h1020",
+    image: "https://lh3.googleusercontent.com/p/AF1QipPVFj6ObiQ_GhxfS73asy5oSON1XtjeNSRGZhrJ=w324-h312-n-k-no",
     lat: -8.8681,
     lng: 116.1558,
   },
   {
-    id: 108,
+    id: 31,
     name: { id: "Sikara Lombok Hotel", en: "Sikara Lombok Hotel" },
     location: "Kuta",
     regency: "Kabupaten Lombok Tengah",
@@ -232,5 +490,33 @@ export const PLACES: Place[] = [
     image: "https://lh3.googleusercontent.com/p/AF1QipM-Pax21YbOEQdK_4hwBrLOTuc4p9fI7gwnQG1R=s1360-w1360-h1020",
     lat: -8.8894,
     lng: 116.2801,
-  }
+  },
+  {
+    id: 32,
+    name: { id: "The Oberoi Beach Resort Lombok", en: "The Oberoi Beach Resort Lombok" },
+    location: "Medana",
+    regency: "Kabupaten Lombok Utara",
+    category: "penginapan",
+    description: {
+      id: "Resor mewah tepi pantai dengan vila bergaya tradisional dan layanan premium.",
+      en: "Luxury beachfront resort with traditional-style villas and premium services.",
+    },
+    image: "https://lh3.googleusercontent.com/p/AF1QipNGCdj4OAG77PuZzy9JFck2bzcK1xBQoUJlVwV9=s1360-w1360-h1020",
+    lat: -8.3833,
+    lng: 116.0833,
+  },
+  {
+    id: 33,
+    name: { id: "Katamaran Hotel & Resort", en: "Katamaran Hotel & Resort" },
+    location: "Senggigi",
+    regency: "Kabupaten Lombok Barat",
+    category: "penginapan",
+    description: {
+      id: "Resor tepi pantai dengan kolam infinity dan fasilitas lengkap untuk keluarga.",
+      en: "Beachfront resort with infinity pool and complete family facilities.",
+    },
+    image: "https://cdn-67a1add2c1ac1822804d3201.closte.com/lombok/wp-content/uploads/sites/3/2024/12/main-20.jpg",
+    lat: -8.4750,
+    lng: 116.0400,
+  },
 ];
